@@ -1,1 +1,37 @@
-Pris dans le tar ball libev-4.22.tar.gz comme base.
+/******************************************************************************/
+1.1 Pris dans le tar ball libev-4.22.tar.gz comme base.
+1.2 Premier essai et ca fonctionne.
+/******************************************************************************/
+
+
+/******************************************************************************/
+1.1 Pris dans le tar ball libev-4.22.tar.gz comme base.
+/******************************************************************************/
+
+/******************************************************************************/
+1.2 Premier essai et ca fonctionne.
+/******************************************************************************/
+tar -xf libev-4.22.tar.gz 
+cd libev-4.22/
+
+./configure --with-gnu-ld --enable-static --enable-shared
+make
+
+Regardez dans les répertoires .libs et .deps.
+
+drwxr-xr-x 2 masseb sg-sw    4096 Jun 29 12:43 .libs
+drwxr-xr-x 5 masseb sg-sw    4096 Jun 29 12:43 .
+-rw-r--r-- 1 masseb sg-sw     924 Jun 29 12:43 libev.la
+drwxr-xr-x 2 masseb sg-sw    4096 Jun 29 12:43 .deps
+-rw-r--r-- 1 masseb sg-sw     285 Jun 29 12:43 event.lo
+-rw-r--r-- 1 masseb sg-sw   39016 Jun 29 12:43 event.o
+-rw-r--r-- 1 masseb sg-sw     276 Jun 29 12:43 ev.lo
+-rw-r--r-- 1 masseb sg-sw  455616 Jun 29 12:43 ev.o
+-rw-r--r-- 1 masseb sg-sw   37498 Jun 29 12:43 config.log
+-rwxr-xr-x 1 masseb sg-sw  293583 Jun 29 12:43 libtool
+-rw-r--r-- 1 masseb sg-sw      23 Jun 29 12:43 stamp-h1
+-rw-r--r-- 1 masseb sg-sw    3543 Jun 29 12:43 config.h
+-rw-r--r-- 1 masseb sg-sw   29403 Jun 29 12:43 Makefile
+-rwxr-xr-x 1 masseb sg-sw   61943 Jun 29 12:43 config.status
+drwxr-xr-x 3 masseb sg-sw    4096 Jun 29 12:32 ..
+-rw-r--r-- 1 masseb sg-sw       8 Jun 29 11:44 README.md
