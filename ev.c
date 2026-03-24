@@ -483,7 +483,7 @@ struct signalfd_siginfo
 /*#define MIN_INTERVAL  0.00000095367431640625 /* 1/2**20, good till 2200 */
 
 #define MIN_TIMEJUMP  1. /* minimum timejump that gets detected (if monotonic clock available) */
-#define MAX_BLOCKTIME 59.743 /* never wait longer than this time (to detect time jumps) */
+#define MAX_BLOCKTIME 59.743 // Benoit orig --> 59.743 /* never wait longer than this time (to detect time jumps) */
 
 #define EV_TV_SET(tv,t) do { tv.tv_sec = (long)t; tv.tv_usec = (long)((t - tv.tv_sec) * 1e6); } while (0)
 #define EV_TS_SET(ts,t) do { ts.tv_sec = (long)t; ts.tv_nsec = (long)((t - ts.tv_sec) * 1e9); } while (0)
@@ -3592,6 +3592,8 @@ ev_run (EV_P_ int flags)
       {
         ev_tstamp waittime  = 0.;
         ev_tstamp sleeptime = 0.;
+        
+        // Benoit fprintf (stderr, "sleeptime %f\n", sleeptime);
 
         /* remember old timestamp for io_blocktime calculation */
         ev_tstamp prev_mn_now = mn_now;
@@ -3641,6 +3643,8 @@ ev_run (EV_P_ int flags)
 
                 if (expect_true (sleeptime > 0.))
                   {
+                    // Benoit fprintf (stderr, "sleeptime %f\n", sleeptime);
+
                     ev_sleep (sleeptime);
                     waittime -= sleeptime;
                   }
@@ -3684,7 +3688,10 @@ ev_run (EV_P_ int flags)
       if (expect_false (checkcnt))
         queue_events (EV_A_ (W *)checks, checkcnt, EV_CHECK);
 #endif
-
+      #if 1 // Benoit
+        if (!(loop_count%1024))
+          fprintf (stderr, "loop counter %d\n", loop_count);
+      #endif 
       EV_INVOKE_PENDING;
     }
   while (expect_true (
